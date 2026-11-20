@@ -3,18 +3,18 @@ import { pool } from "../../db/index.js";
 import type { IUser, PartialUser } from "./user.interface.js";
 
 const createUserIntoDB = async (payload: IUser) => {
-  const { name, age, password, email } = payload;
+  const { name, age, password, email, role } = payload;
 
-  const hashPassword = await bcrypt.hash(password, 10)
+  const hashPassword = await bcrypt.hash(password, 10);
 
   const result = await pool.query(
     `
-        INSERT INTO users (name, email, password, age) 
-        VALUES ($1, $2, $3, $4) RETURNING *
+        INSERT INTO users (name, email, password, age, role) 
+        VALUES ($1, $2, $3, $4, COALESCE($5, 'user')) RETURNING *
         `,
-    [name, email, hashPassword, age],
+    [name, email, hashPassword, age, role],
   );
-  delete result.rows[0].password
+  delete result.rows[0].password;
   return result;
 };
 
@@ -70,5 +70,5 @@ export const userService = {
   getAllUsersFromDB,
   getSingleUserFromDB,
   updateUserFromDB,
-  deleteUserFromDB
+  deleteUserFromDB,
 };
