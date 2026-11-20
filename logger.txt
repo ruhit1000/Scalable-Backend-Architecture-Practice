@@ -8,3 +8,29 @@ Method: GET | URL: /api/v1/users/8 | Time: 1795165670829
 Method: GET | URL: /api/v1/users | Time: 1795165678022
 
 Method: GET | URL: /api/v1/users/14 | Time: 1795165691728
+
+Method: GET | URL: /api/v1/users/14 | Time: 1795165846180
+
+Method: GET | URL: /api/v1/users/11 | Time: 1795165850027
+
+Method: GET | URL: /api/v1/users/119 | Time: 1795165853541
+
+Method: GET | URL: /api/v1/users | Time: 1795165857683
+
+Method: GET | URL: /api/v1/users | Time: 1795166292628
+
+Method: GET | URL: /api/v1/login | Time: 1795166810200
+
+Method: GET | URL: /api/v1/auth/login | Time: 1795166853468
+
+Method: POST | URL: /api/v1/auth/login | Time: 1795166896126
+
+Method: POST | URL: /api/v1/auth/login | Time: 1795166909420
+
+Method: GET | URL: /api/v1/users | Time: 1795167069728
+
+Method: GET | URL: /api/v1/users | Time: 1795167124737
+
+Method: GET | URL: /api/v1/users | Time: 1795167354324
+
+Method: GET | URL: /api/v1/users | Time: 1795167385340
