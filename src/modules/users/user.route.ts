@@ -5,7 +5,7 @@ import auth from "../../middleware/auth.js";
 const router = Router();
 
 // /api/v1/users/
-router.post("/", userController.createUser);
+router.post("/", auth, userController.createUser);
 router.get("/", auth, userController.getAllUser);
 router.get("/:id", userController.getSingleUser);
 router.put("/:id", userController.updateUser);

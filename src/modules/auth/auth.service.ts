@@ -2,6 +2,7 @@ import bcrypt from "bcryptjs";
 import { pool } from "../../db/index.js";
 import type { AuthPayload } from "./auth.interface.js";
 import jwt from "jsonwebtoken";
+import config from "../../config/index.js";
 
 const loginUserIntoDB = async (payload: AuthPayload) => {
   // Check if the user exist --> Done
@@ -37,7 +38,7 @@ const loginUserIntoDB = async (payload: AuthPayload) => {
     email: user.rows[0].email,
   };
 
-  const accessToken = jwt.sign(jwtPayload, "dfhsajhffdsweatb", {
+  const accessToken = jwt.sign(jwtPayload, config.jwt_secret, {
     expiresIn: "1d",
   });
 
