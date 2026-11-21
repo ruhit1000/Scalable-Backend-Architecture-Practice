@@ -9,9 +9,18 @@ import { profileRoute } from "./modules/profile/profile.route.js";
 import { authRoute } from "./modules/auth/auth.route.js";
 import logger from "./middleware/logger.js";
 import globalErrorHandler from "./middleware/globalErrorHandler.js";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+
+var corsOptions = {
+  origin: ["http://localhost:3000"],
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.text());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger);
 
@@ -28,6 +37,5 @@ app.get("/", (req: Request, res: Response) => {
 });
 
 app.use(globalErrorHandler);
-
 
 export default app;
