@@ -11,6 +11,7 @@ import logger from "./middleware/logger.js";
 import globalErrorHandler from "./middleware/globalErrorHandler.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import sendResponse from "./utils/sendResponse.js";
 
 var corsOptions = {
   origin: ["http://localhost:3000"],
@@ -29,10 +30,11 @@ app.use("/api/v1/profiles", profileRoute);
 app.use("/api/v1/auth", authRoute);
 
 app.get("/", (req: Request, res: Response) => {
-  res.status(200).json({
+  sendResponse(res, {
+    statusCode: 200,
     success: true,
     message: "This is root route",
-    author: "Ruhit",
+    data: { author: "Ruhit" },
   });
 });
 
