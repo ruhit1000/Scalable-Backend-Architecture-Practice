@@ -8,6 +8,7 @@ import { userRoute } from "./modules/users/user.route.js";
 import { profileRoute } from "./modules/profile/profile.route.js";
 import { authRoute } from "./modules/auth/auth.route.js";
 import logger from "./middleware/logger.js";
+import globalErrorHandler from "./middleware/globalErrorHandler.js";
 
 app.use(express.json());
 app.use(express.text());
@@ -25,5 +26,8 @@ app.get("/", (req: Request, res: Response) => {
     author: "Ruhit",
   });
 });
+
+app.use(globalErrorHandler);
+
 
 export default app;
